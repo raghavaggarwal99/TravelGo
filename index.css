@@ -1,0 +1,191 @@
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 87px;
+  right: 20px;
+  border: 3px solid #f1f1f1;
+	width: 420px;
+	height: 497px;
+
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+  height: 450px;
+}
+
+/* Full-width textarea */
+#input{
+  width: 400px;
+  padding: 15px;
+  margin: 25px 0 0 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+   margin-bottom: 0%;
+}
+.chatbot {
+				overflow: auto;
+				height: 350px;
+			}
+			.userInput{
+				text-align: right;
+				padding: 5px;
+				margin: 5px 35px 5px 120px;
+				background: #0000ff;
+  				background: linear-gradient(#0000ff, #0000ff);
+  				border: 2px solid #0000cd;
+  				border-radius: 15px;
+  				color: #fff;
+  				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				/* background-color: blue; */
+			}
+			.response{
+				/* text-align: left; */
+				padding: 5px;
+				margin: 5px 70px 5px 40px;
+				background: #4169e1;
+  				background: linear-gradient(#4169e1, #4169e1);
+  				border: 2px solid #0000ff;
+  				border-radius: 15px;
+  				color: #fff;
+  				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				/* background-color: yellow; */
+				/* margin shorthand - top right bottom left */
+			}
+
+.form-container .cancel {
+  background-color: red;
+  margin-bottom: 200px;
+	width:400px;
+
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 400px;
+}
+.image{
+
+	width: 40px;
+  height: 40px;
+  border-radius: 50%;
+	float : left;
+	/* margin-left: 50px; */
+}
+.userimage{
+
+	width: 40px;
+  height: 40px;
+	padding:5px;
+  border-radius: 50%;
+	float : right;
+
+}
+.time{
+
+	margin-left: 50px;
+	font-size: 10px;
+
+
+}
+.inputtime{
+
+	/* margin-right: 30px; */
+	font-size: 10px;
+	margin-left: 265px;
+
+}
+.heading{
+margin-left: 30px;
+background: #000080;
+  				background: linear-gradient(#000080, #000080);
+  				border: 2px solid #0000ff;
+  				border-radius: 15px;
+  				color: #fff;
+  				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+padding: 10px;
+margin-top: 0;
+}
+.headingimage{
+
+	margin-top: 0;
+	width: 70px;
+  height: 70px;
+	/* padding:5px; */
+  border-radius: 50%;
+	float : left;
+
+
+
+}
+.buttonbusfare{
+
+	background: white;
+	border: 2px solid #0000ff;
+  border-radius: 15px;
+  color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width:200px;
+	/* height:100px; */
+	margin-left:70px;
+	padding: 10px;
+  display: inline-block;
+	text-align: center;
+	margin-top: 5px;
+
+}
+.buttonbusfare:hover {
+  background-color: #4169e1;
+  color: black;
+}
+.yesno{
+	background: white;
+	border: 2px solid #0000ff;
+  border-radius: 15px;
+  color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width:100px;
+	/* height:100px; */
+	margin-left:30px;
+	padding: 10px;
+  display: inline-block;
+	text-align: center;
+
+
+}
+.yesno:hover {
+  background-color: #4169e1;
+  color: black;
+}

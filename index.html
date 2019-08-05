@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+	<link rel="stylesheet" href="index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+<button class="open-button" onclick="openForm()">Chat</button>
+<div class="chat-popup" id="myForm">
+		<img src=bot2.jpg class="headingimage"><h1 class="heading">Travel Go Master</h1>
+  <div class="form-container">
+
+    <div class='chatbot'>    
+    </div>
+    <input placeholder="Hey, ask me something..." id="input" type="text"  >
+
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </div>
+</div>
+
+<script >
+var important_variable=0;
+var another=0;
+var p=new Date();
+console.log(p)
+// function displayDelayedResponses(responses) {
+//             for (var i=0; i<responses.length-1; i++) {
+//                 var response = responses[i];
+
+//                 (function(response, i) {
+//                     setTimeout(function() {
+//                         $(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + response+ '</div>');
+// 												outputdate();
+//                         $(".chatBox").animate({ scrollTop: $('.chatBox').prop("scrollHeight")}, 800);
+//                     }, 3000 * i);
+//                 })(response, i);
+//             }
+//         }
+
+
+
+function inputdate(){
+
+	var x=new Date();
+	var seconds=x.getSeconds();
+	var minutes=x.getMinutes();
+	var hours=x.getHours();
+	var weekday = new Array(7);
+weekday[0] =  "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+$(".chatbot").append('<b><div class="inputtime">'+weekday[x.getDay()] +" " + hours + ":" + minutes + '</div></b>')
+$(".chatbot").animate({scrollTop : $(".chatbot").prop("scrollHeight")}, 800); 
+
+}
+function outputdate(){
+
+	var x=new Date();
+	var seconds=x.getSeconds();
+	var minutes=x.getMinutes();
+	var hours=x.getHours();
+	var weekday = new Array(7);
+weekday[0] =  "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+
+	$(".chatbot").append('<b><div class="time">'+weekday[x.getDay()] +" " + hours + ":" + minutes + '</div></b>')
+	$(".chatbot").animate({scrollTop : $(".chatbot").prop("scrollHeight")}, 800); 
+}
+function busfarebutton(value){
+	$('.chatbot').append('<img src=user.png class="userimage"><div class="userInput" >'+ value + '</div>')
+	inputdate();
+
+	if(value=="Bus Availability"){
+		important_variable=3;
+	}
+
+	else if(value=="Bus Fare" ){
+		console.log("in bus fare")
+		important_variable=1;
+		value="Bus Availability";
+	}
+	else if(value=="Seats" ){
+		important_variable=2;
+		value="Bus Availability";
+	}
+	else if(value=="bus pass"){
+		important_variable=4;
+	}
+	else if(value=="Online Book"){
+		important_variable=5;
+	}
+	else if(value=="Online Customer Service"){
+		important_variable=6;
+	}
+	send(value,p)
+
+}
+function seatsbutton(copy_val){
+
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + "Thanks for using me!"+ '</div>');
+	check=0;
+	if(check==0){
+  	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">'+ 
+	"“Hi, my name is TravelGo.Here are some queries I can help you with." + '</div>')
+	outputdate();
+	$(".chatbot").append('<div><button type="button" class="buttonbusfare" value="Bus Fare" onclick="busfarebutton(value)">' +"Bus Fare" +'</div></button>')
+	$(".chatbot").append('<div><button type="button" class="buttonbusfare" value="Bus Availability" onclick="busfarebutton(value)">' +"Bus Availability" +'</div></button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="Online Book" onclick="busfarebutton(value)">' +"Bus Booking" +'</button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="Online Customer Service" onclick="busfarebutton(value)">' +"Online Customer Service" +'</button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="bus pass" onclick="busfarebutton(value)">' +"Bus Pass" +'</button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="Seats" onclick="busfarebutton(value)">' +"Seats Availability" +'</button>')
+	
+	// $(".chatbot").append('<div class="response">'+ "1) Bus Fares" + '</div>');
+		check=check+1;
+	}
+	outputdate();
+}
+
+
+
+var check=0;
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+
+	if(check==0){
+  $(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">'+ 
+	"“Hi, my name is TravelGo.Here are some queries I can help you with." + '</div>')
+	outputdate();
+	$(".chatbot").append('<div><button type="button" class="buttonbusfare" value="Bus Fare" onclick="busfarebutton(value)">' +"Bus Fare" +'</div></button>')
+	$(".chatbot").append('<div><button type="button" class="buttonbusfare" value="Bus Availability" onclick="busfarebutton(value)">' +"Bus Availability" +'</div></button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="Online Book" onclick="busfarebutton(value)">' +"Bus Booking" +'</button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="Online Customer Service" onclick="busfarebutton(value)">' +"Online Customer Service" +'</button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="bus pass" onclick="busfarebutton(value)">' +"Bus Pass" +'</button>')
+	$(".chatbot").append('<button type="button" class="buttonbusfare" value="Seats" onclick="busfarebutton(value)">' +"Seats Availability" +'</button>')
+	
+	// $(".chatbot").append('<div class="response">'+ "1) Bus Fares" + '</div>');
+		check=check+1;
+	}
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+//   $(".chatbot").empty();
+}
+
+
+        $(document).ready(function() {
+			$("#input").keypress(function(event) {
+				if (event.which === 13 && $('input').val()!="") {
+		
+
+					$('.chatbot').append('<img src=user.png class="userimage"><div class="userInput" >'+ $('input').val() + '</div>')
+					// $(".chatbot").scrollIntoView();
+					inputdate();
+					event.preventDefault();
+					let query  = $('input').val()
+					$('input').val('')
+					send(query,p);
+				}
+			});
+		});
+
+		function send(query,p) {
+			var text = query;
+			var text1=p;
+			console.log(p)
+			$.ajax({
+    type: "GET",
+    url: 'http://54.86.180.158:5000/',
+		// contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		// data:text,
+		data: {query: text,passed:text1},
+    success: function(response){
+			setResponse(response)
+       
+        //var getvalue = output.startdate;
+        //var xxx = parseInt(getvalue);
+    }
+})
+		}
+
+        function setResponse(val) {
+					// displayDelayedResponses(val);
+if(important_variable==3){
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[0]+ '</div>');
+	for (i = 1; i < val.length; i++){
+		var res=val[i].split(" ");
+		var final=res[0].concat(" ");
+		for(j=1; j<res.length; j++){
+				final=final.concat(res[j], " ");
+		}
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + final+ '</div>');
+	$(".chatbot").animate({scrollTop : $(".chatbot").prop("scrollHeight")}, 200); 
+		
+	}
+}
+else if(important_variable==1){
+	console.log("yes it is 1")
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[0]+ '</div>');
+	for (i = 1; i < val.length; i++){
+		var res=val[i].split(" ");
+		var final=res[0].concat(" ");
+		var j=1;
+		while(j<res.length){
+				if(res[j]=="with"){
+					j++;
+					continue;
+				}
+				if(res[j]=="seats"){
+					j+=2;
+					continue;
+				}
+
+				final=final.concat(res[j], " ");
+				j++;
+		}
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + final+ '</div>');
+	$(".chatbot").animate({scrollTop : $(".chatbot").prop("scrollHeight")}, 200); 
+		
+	}
+}
+else if(important_variable==2){
+	console.log("yes it is 2")
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[0]+ '</div>');
+	for (i = 1; i < val.length; i++){
+		var res=val[i].split(" ");
+		var final=res[0].concat(" ");
+		var j=1;
+		while(j<res.length){
+				if(res[j]=="fares"){
+					j+=6;
+					continue;
+				}
+				final=final.concat(res[j], " ");
+				j++;
+		}
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + final+ '</div>');
+	$(".chatbot").animate({scrollTop : $(".chatbot").prop("scrollHeight")}, 200); 
+		
+	}
+}
+else if(important_variable==4){
+	console.log("yes the variable is 4")
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[0]+ '</div>');
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response"><a href="http://utc.uk.gov.in/pages/display/3-monthly-pass-scheme" target="_blank">' + val[1]+ '</a></div>');
+
+}
+else if(important_variable==5){
+	console.log("yes the variable is 5")
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[0]+ '</div>');
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response"><a href="https://utconline.uk.gov.in/" target="_blank">' + val[1]+ '</a></div>');
+
+}
+else if(important_variable==6){
+	console.log("yes the variable is 6")
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[0]+ '</div>');
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response"><a href="http://utc.uk.gov.in/contactus" target="_blank">' + val[1]+ '</a></div>');
+
+}
+else{
+	for (i = 0; i < val.length; i++){
+			$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + val[i]+ '</div>');
+			$(".chatbot").animate({scrollTop : $(".chatbot").prop("scrollHeight")}, 200); 
+}
+}
+
+
+if(important_variable==3 && val.length>1 && another==0){
+	important_variable=0;
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + "Do you want to book the bus?"+ '</div>');
+	$(".chatbot").append('<button type="button" class="yesno" value="Online Book" onclick="busfarebutton(value)">' +"Yes" +'</button><button type="button" class="yesno" value="thanks" onclick="seatsbutton()">' +"No" +'</button>')
+	// another=3;
+}
+if(important_variable==1 && val.length>1 && another==0){
+	important_variable=0;
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + "Do you want to book the bus?"+ '</div>');
+	$(".chatbot").append('<button type="button" class="yesno" value="Online Book" onclick="busfarebutton(value)">' +"Yes" +'</button><button type="button" class="yesno" value="val" onclick="seatsbutton()">' +"No" +'</button>')
+
+	// another=1;
+}
+if(important_variable==2 && val.length>1 && another==0){
+	important_variable=0;
+	$(".chatbot").append('<img src=bot2.jpg class="image"><div class="response">' + "Do you want to book your bus?"+ '</div>');
+	$(".chatbot").append('<button type="button" class="yesno" value="Online Book" onclick="busfarebutton(value)">' +"Yes" +'</button><button type="button" class="yesno" value="Bus Fare" onclick="seatsbutton()">' +"No" +'</button>')
+	
+
+	// another=1;
+}
+
+		outputdate();
+			 }
+</script>
+
+</body>
+</html>
